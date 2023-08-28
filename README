@@ -1,3 +1,7 @@
 build with no cache
 
 docker build -t rafaelcorsi/bits:latest --build-arg CACHEBUST=$(date +%s) .
+
+Para testar:
+
+https://github.com/Insper/bits-e-proc-docker-test
