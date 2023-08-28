@@ -1,0 +1,3 @@
+build with no cache
+
+docker build -t rafaelcorsi/bits:latest --build-arg CACHEBUST=$(date +%s) .

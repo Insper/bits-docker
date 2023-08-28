@@ -1,4 +1,4 @@
-FROM ubuntu:22.04
+FROM ubuntu:20.04
 ARG DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update
@@ -31,4 +31,14 @@ WORKDIR /openfpgaloader
 RUN cmake .; make -j$(nproc)
 RUN make install
 
+# Bits e Proc course Tools
 WORKDIR /
+run apt install -y python3.8
+run wget https://bootstrap.pypa.io/get-pip.py
+run python3.8 get-pip.py
+
+ARG CACHEBUST=1
+run pip3.8 install pytest
+run pip3.8 install git+https://github.com/myhdl/myhdl.git@master
+run pip3.8 install git+https://github.com/Insper/bits-e-proc-tools
+run pip3.8 install git+https://github.com/insper-education/telemetry-pytest
